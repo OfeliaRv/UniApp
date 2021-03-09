@@ -1,0 +1,188 @@
+.auth-container {
+    display: flex;
+    height: 100%;
+
+    .auth-card {
+        width: 880px;
+        height: 572px;
+        background: #fff;
+        box-shadow: 0px 0px 0px rgba(63, 63, 68, 0.05), 0px 1px 3px rgba(63, 63, 68, 0.15);
+        border-radius: 4px;
+        margin: auto;
+        display: flex;
+
+        .auth-part {
+            width: 50%;
+        }
+
+        .auth-heading {
+            margin: 55px 40px 40px 24px;
+
+            .back-arrow {
+                width: 18px;
+                height: 14px;
+                margin-right: 8px;
+            }
+
+            .heading-nav,
+            .heading-back {
+                display: flex;
+                align-items: center;
+            }
+
+            .heading-back {
+                cursor: pointer;
+            }
+
+            .heading-nav {
+                justify-content: space-between;
+                margin-bottom: 24px;
+
+                a,
+                p {
+                    font-size: 14px;
+                    line-height: 16px;
+                    letter-spacing: -0.05px;
+                    color: #9ea0a5;
+                    margin: 0 !important;
+                }
+            }
+
+            .heading-main {
+                h1 {
+                    font-weight: 500;
+                    font-size: 24px;
+                    line-height: 28px;
+                    letter-spacing: -0.06px;
+                    color: #212529;
+                }
+
+                h6 {
+                    font-size: 14px;
+                    line-height: 20px;
+                    letter-spacing: -0.05px;
+                    color: #9ea0a5;
+                }
+            }
+        }
+
+        form,
+        .auth-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .check {
+            display: flex;
+            align-items: center;
+        }
+
+        #auth {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            input {
+                height: 50px;
+                width: 360px;
+                margin: 8px 0;
+                border: 1px solid rgba(0, 0, 0, 0.32);
+                border-radius: 4px;
+            }
+
+            input::placeholder {
+                font-size: 16px;
+                line-height: 24px;
+                letter-spacing: 0.15px;
+                padding-left: 16px;
+                color: rgba(0, 0, 0, 0.6);
+            }
+
+            input[type="checkbox"] {
+                height: 18px;
+                width: 18px;
+                border: #425a70;
+                margin-right: 8px;
+            }
+
+            label {
+                font-size: 14px;
+                line-height: 20px;
+                letter-spacing: -0.05px;
+                color: #9ea0a5;
+                margin: auto 0;
+            }
+
+            .auth-button {
+                background: #1f1caf;
+                box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.12),
+                    0px 1px 3px rgba(0, 0, 0, 0.2);
+                text-transform: uppercase;
+                width: 360px;
+                height: 40px;
+                font-weight: 500;
+                font-size: 14px;
+                text-align: center;
+                display: table-cell;
+                vertical-align: middle;
+                line-height: 16px;
+                letter-spacing: 1.25px;
+                color: #fff;
+            }
+
+            .auth-button-container {
+                margin-top: 24px;
+            }
+        }
+
+        #auth-pic {
+            background: url("../../img/auth-pic.png");
+            background-position-y: -160px; 
+            background-position-x: center;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+
+            .picture-text {
+                margin-bottom: 24px;
+
+                .desc {
+                    font-size: 16px;
+                    line-height: 25px;
+                    letter-spacing: -0.0571429px;
+                    margin-bottom: 16px;
+                }
+
+                img {
+                    width: 32px;
+                    height: 32px;
+                    margin-right: 12px;
+                }
+
+                p,
+                span {
+                    margin: 0;
+                    color: #ffffff;
+                }
+
+                .author {
+                    display: flex;
+
+                    p {
+                        font-size: 14px;
+                        line-height: 16px;
+                        letter-spacing: -0.05px;
+                    }
+
+                    span {
+                        font-size: 12px;
+                        line-height: 14px;
+                        letter-spacing: -0.0428571px;
+                    }
+                }
+            }
+        }
+    }
+}
