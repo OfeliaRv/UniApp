@@ -1,0 +1,96 @@
+.packs-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    .pack {
+        margin: 0 15px;
+        width: 460px;
+        height: 610px;
+        background: #ffffff;
+        box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15);
+        border-radius: 4px;
+        
+        h3 {
+            font-weight: 500;
+            font-size: 28px;
+            line-height: 52px;
+            letter-spacing: -0.06px;
+            color: #1f1caf;
+            margin-top: 30px;
+            margin-left: 34px;
+        }
+
+        &-price {
+            h6,
+            p {
+                text-align: center;
+                letter-spacing: -0.06px;
+            }
+
+            h6 {
+                font-weight: 500;
+                font-size: 48px;
+                line-height: 80px;
+                color: #414142;
+            }
+
+            p {
+                font-size: 18px;
+                line-height: 32px;
+                color: #686666;
+            }
+        }
+
+        &-about {
+            p {
+                font-size: 18px;
+                line-height: 32px;
+                margin: 0 64px;
+                text-align: center;
+                letter-spacing: -0.06px;
+                color: #686666;
+            }
+        }
+
+        button {
+            width: 320px;
+            height: 55px;
+            background: #1f1caf;
+            border: none;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 32px;
+            margin: 32px 48px;
+            letter-spacing: -0.06px;
+            color: #ffffff;
+
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+        }
+
+        &-properties {
+            ul {
+                li {
+                    font-size: 17px;
+                    line-height: 30px;
+                    letter-spacing: -0.06px;
+                    color: #686666;
+                    list-style-type: none;
+                }
+
+                li:before {
+                    content: "•";
+                    font-size: 14px;
+                    display: inline-block;
+                    font-weight: bold;
+                    width: 1em;
+                }
+            }
+        }
+    }
+}
