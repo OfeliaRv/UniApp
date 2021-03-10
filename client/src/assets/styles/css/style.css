@@ -1,4 +1,66 @@
 @charset "UTF-8";
+nav {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  height: 64px;
+}
+
+nav .nav1 {
+  background-color: #3f51b5;
+  width: calc(100% - 90px);
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+nav .nav1 .nav1-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  margin: 0 24px;
+}
+
+nav .nav1 .nav1-content .logo img {
+  height: 34px;
+}
+
+nav .nav1 .nav1-content .nav-buttons .nav-button {
+  margin-left: 16px;
+}
+
+nav .nav2 {
+  height: 100%;
+  width: 90px;
+}
+
+nav .nav2 .uni-logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+nav .nav2 .uni-logo img {
+  margin: auto 0;
+  width: 60px;
+  height: 40px;
+}
+
 .auth-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -342,5 +404,114 @@
   display: inline-block;
   font-weight: bold;
   width: 1em;
+}
+
+.dashboard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100vh;
+}
+
+.dashboard .left-navigator {
+  width: 270px;
+  height: 100%;
+  background: #ffffff;
+  border: 1px solid rgba(63, 63, 68, 0.005);
+  -webkit-box-shadow: 0px 1px 0px rgba(63, 63, 68, 0.05), 0px 1px 3px rgba(63, 63, 68, 0.15);
+          box-shadow: 0px 1px 0px rgba(63, 63, 68, 0.05), 0px 1px 3px rgba(63, 63, 68, 0.15);
+}
+
+.dashboard .left-navigator .user-profile {
+  height: 203px;
+}
+
+.dashboard .left-navigator .user-profile .user-picture {
+  margin: 24px auto 16px auto;
+  height: 100px;
+  width: 100px;
+  border-radius: 100%;
+  border: 1px solid black;
+}
+
+.dashboard .left-navigator .user-profile .user-info {
+  text-align: center;
+}
+
+.dashboard .left-navigator .user-profile .user-info .user-fullname {
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: -0.05px;
+  color: #3a3b3f;
+}
+
+.dashboard .left-navigator .user-profile .user-info .user-position {
+  font-size: 12px;
+  line-height: 16px;
+  color: #9ea0a5;
+}
+
+.dashboard .right-main-content {
+  width: 93%;
+}
+
+.dashboard .right-main-content .main-content-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 57px;
+  margin: 0 90px 0 24px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.dashboard .right-main-content .main-content-nav .nav-tabs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  border: none;
+}
+
+.dashboard .right-main-content .main-content-nav .nav-tabs .tab {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: inherit;
+  width: 78px;
+  margin: 0 20px;
+}
+
+.dashboard .right-main-content .main-content-nav .nav-tabs .tab h6 {
+  text-align: center;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: -0.05px;
+  color: #3a3b3f;
+  margin: 0;
+}
+
+.dashboard .right-main-content .main-content-nav .nav-button button {
+  width: 152px;
+  height: 40px;
+  background-color: #2ed47a;
+  -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.12), 0px 1px 3px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.12), 0px 1px 3px rgba(0, 0, 0, 0.2);
+  color: #fafafa;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.12), 0px 1px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  border: none;
+  text-transform: uppercase;
 }
 /*# sourceMappingURL=style.css.map */

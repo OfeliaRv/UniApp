@@ -1,0 +1,49 @@
+nav {
+    display: flex !important;
+    height: 64px;
+
+    .nav1 {
+        background-color: #3f51b5;
+        width: calc(100% - 90px);
+        height: 100%;
+        display: flex;
+        align-items: center;
+
+        .nav1-content {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin: 0 24px;
+
+            .logo {
+                img {
+                    height: 34px;
+                }
+            }
+
+            .nav-buttons {
+                .nav-button {
+                    margin-left: 16px;
+                }
+            }
+        }
+    }
+
+    .nav2 {
+        height: 100%;
+        width: 90px;
+
+        .uni-logo {
+            display: flex;
+            justify-content: center;
+            height: 100%;
+            align-items: center;
+
+            img {
+                margin: auto 0;
+                width: 60px;
+                height: 40px;
+            }
+        }
+    }
+}

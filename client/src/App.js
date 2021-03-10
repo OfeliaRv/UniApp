@@ -7,6 +7,7 @@ import {
 import Home from './pages/Home';
 import Register from './pages/Register';
 import { Packs } from './pages/Packs';
+import Students from './pages/Students';
 
 class App extends Component {
     state = {
@@ -53,6 +54,7 @@ class App extends Component {
                         <Route path="/packs" >
                             <Packs packs={this.state.packs} />
                         </Route>
+                        <Route path="/students" component={Students} />
                     </Switch>
                 </Router>
             </div>
