@@ -5,15 +5,15 @@ import {
     Route
 } from "react-router-dom";
 import Home from './pages/Home';
-import Register from './pages/Register';
+import Auth from './pages/Auth';
 import { Packs } from './pages/Packs';
-import Students from './pages/Students';
+import Dashboard from './pages/Dashboard';
 
 class App extends Component {
     state = {
         packs: [
             {
-                id: 1, name: "Basic pack", 
+                id: 1, name: "Basic pack",
                 price: "9.99$",
                 features: [
                     { id: 1, feature: "Notification sounds" },
@@ -22,7 +22,7 @@ class App extends Component {
                 ]
             },
             {
-                id: 2, name: "Regular pack", 
+                id: 2, name: "Regular pack",
                 price: "16.99$",
                 features: [
                     { id: 1, feature: "Notification sounds" },
@@ -50,11 +50,13 @@ class App extends Component {
                 <Router>
                     <Switch>
                         <Route exact path="/" component={Home} />
-                        <Route path="/register" component={Register} />
+                        <Route path="/register" component={Auth} />
                         <Route path="/packs" >
                             <Packs packs={this.state.packs} />
                         </Route>
-                        <Route path="/students" component={Students} />
+                        <Route path="/students" component={Dashboard} />
+                        <Route path="/teachers" component={Dashboard} />
+                        <Route path="/timetable" component={Dashboard} />
                     </Switch>
                 </Router>
             </div>

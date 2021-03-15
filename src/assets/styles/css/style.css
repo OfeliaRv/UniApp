@@ -40,6 +40,7 @@ nav .nav1 .nav1-content .nav-buttons .nav-button {
 nav .nav2 {
   height: 100%;
   width: 90px;
+  background-color: #F9FAFB;
 }
 
 nav .nav2 .uni-logo {
@@ -140,7 +141,7 @@ nav .nav2 .uni-logo img {
   color: #9ea0a5;
 }
 
-.auth-container .auth-card form,
+.auth-container .auth-card .form,
 .auth-container .auth-card .auth-form {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -240,14 +241,14 @@ nav .nav2 .uni-logo img {
   height: 40px;
   font-weight: 500;
   font-size: 14px;
-  text-align: center;
-  display: table-cell;
-  vertical-align: middle;
   line-height: 16px;
+  border: none;
   letter-spacing: 1.25px;
   color: #fff;
+  border-radius: 4px;
 }
 
+.auth-container .auth-card #auth button,
 .auth-container .auth-card #auth .auth-button-container {
   margin-top: 24px;
 }
@@ -410,12 +411,12 @@ nav .nav2 .uni-logo img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 100vh;
+  height: inherit;
 }
 
 .dashboard .left-navigator {
   width: 270px;
-  height: 100%;
+  height: inherit;
   background: #ffffff;
   border: 1px solid rgba(63, 63, 68, 0.005);
   -webkit-box-shadow: 0px 1px 0px rgba(63, 63, 68, 0.05), 0px 1px 3px rgba(63, 63, 68, 0.15);
@@ -451,11 +452,84 @@ nav .nav2 .uni-logo img {
   color: #9ea0a5;
 }
 
-.dashboard .right-main-content {
-  width: 93%;
+.dashboard .left-navigator .selector-buttons {
+  margin: 24px 16px;
+  padding: 0;
 }
 
-.dashboard .right-main-content .main-content-nav {
+.dashboard .left-navigator .selector-buttons li {
+  height: 46px;
+  width: 238px;
+  list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.dashboard .left-navigator .selector-buttons li a {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-decoration: none;
+}
+
+.dashboard .left-navigator .selector-buttons li svg {
+  margin-left: 16px;
+  width: 18px;
+  height: 18px;
+}
+
+.dashboard .left-navigator .selector-buttons li p {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  margin: 0 8px;
+  letter-spacing: -0.05px;
+  color: #66788a;
+}
+
+.dashboard .left-navigator .selector-buttons li:hover,
+.dashboard .left-navigator .selector-buttons li:active {
+  background-color: #3f51b5;
+}
+
+.dashboard .left-navigator .selector-buttons li:hover p,
+.dashboard .left-navigator .selector-buttons li:active p {
+  color: white;
+}
+
+.dashboard .left-navigator .selector-buttons li:hover svg path,
+.dashboard .left-navigator .selector-buttons li:hover svg rect,
+.dashboard .left-navigator .selector-buttons li:hover g path,
+.dashboard .left-navigator .selector-buttons li:hover g rect,
+.dashboard .left-navigator .selector-buttons li:active svg path,
+.dashboard .left-navigator .selector-buttons li:active svg rect,
+.dashboard .left-navigator .selector-buttons li:active g path,
+.dashboard .left-navigator .selector-buttons li:active g rect {
+  fill: white;
+}
+
+.dashboard .faded-text {
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 15px;
+  color: rgba(0, 0, 0, 0.328974);
+}
+
+.right-main-content {
+  width: 93%;
+  background-color: #f9fafb;
+}
+
+.right-main-content .main-content-nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -467,9 +541,10 @@ nav .nav2 .uni-logo img {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  background-color: transparent;
 }
 
-.dashboard .right-main-content .main-content-nav .nav-tabs {
+.right-main-content .main-content-nav .nav-tabs {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -477,7 +552,7 @@ nav .nav2 .uni-logo img {
   border: none;
 }
 
-.dashboard .right-main-content .main-content-nav .nav-tabs .tab {
+.right-main-content .main-content-nav .nav-tabs .tab {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -492,7 +567,7 @@ nav .nav2 .uni-logo img {
   margin: 0 20px;
 }
 
-.dashboard .right-main-content .main-content-nav .nav-tabs .tab h6 {
+.right-main-content .main-content-nav .nav-tabs .tab h6 {
   text-align: center;
   font-weight: 500;
   font-size: 16px;
@@ -502,16 +577,98 @@ nav .nav2 .uni-logo img {
   margin: 0;
 }
 
-.dashboard .right-main-content .main-content-nav .nav-button button {
+.right-main-content .main-content-nav a {
   width: 152px;
   height: 40px;
   background-color: #2ed47a;
   -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.12), 0px 1px 3px rgba(0, 0, 0, 0.2);
           box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.12), 0px 1px 3px rgba(0, 0, 0, 0.2);
   color: #fafafa;
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.12), 0px 1px 3px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
-  border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   text-transform: uppercase;
+  text-decoration: none;
+}
+
+.right-main-content table {
+  width: 100%;
+  text-align: center;
+  background-color: #fff;
+}
+
+.right-main-content table thead {
+  font-family: "Mulish", sans-serif !important;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.2px;
+  border: 1px solid #ebeff2;
+  color: #9fa2b4;
+  height: 64px;
+}
+
+.right-main-content table thead th {
+  height: 64px;
+}
+
+.right-main-content .list-container {
+  margin: 40px 90px 0 24px;
+  height: 697px;
+}
+
+.right-main-content .list-container table {
+  font-family: "Poppins", sans-serif;
+}
+
+.right-main-content .list-container table tbody tr {
+  height: 64px;
+  border-top: 1px solid #ebeff2;
+  border-bottom: 1px solid #ebeff2;
+}
+
+.right-main-content .list-container table tbody tr .table-fullname {
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 22px;
+  letter-spacing: 0.01em;
+  color: #323c47;
+}
+
+.right-main-content .list-container table tbody tr td {
+  font-size: 13px;
+  line-height: 19px;
+  letter-spacing: 0.01em;
+  color: #707683;
+}
+
+.right-main-content .list-container table tbody tr:hover {
+  -webkit-box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.timetable-holder {
+  margin: 40px 90px 0 24px;
+}
+
+.timetable-holder table {
+  border: 1px solid rgba(63, 63, 68, 0.005);
+}
+
+.timetable-holder table tbody tr td {
+  border: 1px solid #ebeff2;
+  height: 96px;
+  width: 150px;
+  font-size: 13px;
+  line-height: 19px;
+  letter-spacing: 0.01em;
+  color: #707683;
 }
 /*# sourceMappingURL=style.css.map */

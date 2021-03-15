@@ -8,6 +8,8 @@ class Home extends Component {
                 <Link to="/register"><a>Register</a></Link><br/>
                 <Link to="/packs"><a>Packs</a></Link><br/>
                 <Link to="/students"><a>Students</a></Link><br/>
+                <Link to="/teachers"><a>Teachers</a></Link><br/>
+                <Link to="/timetable"><a>Timetable</a></Link><br/>
             </nav>
         );
     }

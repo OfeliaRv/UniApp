@@ -1,0 +1,20 @@
+.timetable-holder {
+    margin: 40px 90px 0 24px;
+
+    table {
+        border: 1px solid rgba(63, 63, 68, 0.005);
+        tbody {
+            tr {
+                td {
+                    border: 1px solid #ebeff2;
+                    height: 96px;
+                    width: 150px;
+                    font-size: 13px;
+                    line-height: 19px;
+                    letter-spacing: 0.01em;
+                    color: #707683;
+                }
+            }
+        }
+    }
+}

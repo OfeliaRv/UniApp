@@ -4,7 +4,7 @@ import { createBrowserHistory } from 'history';
 
 const history = createBrowserHistory();
 
-class Register extends Component {
+export default class Auth extends Component {
     render() {
         return (
             <Router history={history}>
@@ -52,35 +52,36 @@ class Register extends Component {
     }
 }
 
-export default Register;
-
+const routeChange = () => {
+    let path = `register2`;
+    history.push(path);
+}
 
 const Register_1 = () => {
     return (
-        <form action="">
+        <form className="form">
             <div className="auth-form">
                 <input type="text" name="full name" placeholder="Full Name" />
-                <input type="password" name="password" placeholder="Password" />
+                <input type="text" name="university name" placeholder="University Name" />
                 <input type="email" name="email" placeholder="Email" />
+                <input type="password" name="password" placeholder="Password" />
             </div>
-            <Link to="/register2" className="auth-button-container"><a className="auth-button">Next</a></Link>
+            <div className="check">
+                <input type="checkbox" name="agreement" id="agreement" required />
+                <label for="agreement"> I have read the <a className="link-underline">Terms and Conditions</a>.</label>
+            </div>
+            <button type="submit" className="auth-button" onClick={routeChange}>Sign up now</button>
         </form>
     )
 }
 
 const Register_2 = () => {
     return (
-        <form action="">
+        <form className="form" action="">
             <div className="auth-form">
-                <input type="text" name="position" placeholder="Position" />
-                <input type="text" name="university name" placeholder="University Name" />
-                <input type="text" name="university domain" placeholder="University Domain" />
+                <input type="text" name="position" placeholder="Verify mail" />
             </div>
-            <div className="check">
-                <input type="checkbox" name="agreement" id="agreement" required />
-                <label for="agreement"> I have read the <a className="link-underline">Terms and Conditions</a>.</label>
-            </div>
-            <Link to="/register2" className="auth-button-container"><a className="auth-button">Sign up now</a></Link>
+            <Link to="/dashboard" className="auth-button-container"><button type="submit" className="auth-button">Submit</button></Link>
         </form>
     )
 }
