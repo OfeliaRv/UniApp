@@ -654,6 +654,51 @@ nav .nav2 .uni-logo img {
           box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+.timetable-heading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 auto;
+}
+
+.timetable-heading h1 {
+  font-size: 20px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: -0.05px;
+  color: #3a3b3f;
+  margin-right: 40px;
+}
+
+.timetable-control,
+.timetable-date {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.timetable-control {
+  margin: 20px 0;
+}
+
+.timetable-control .timetable-date {
+  margin: 0 16px;
+}
+
+.timetable-control .timetable-date span {
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: -0.05px;
+  color: #3a3b3f;
+}
+
 .timetable-holder {
   margin: 40px 90px 0 24px;
 }
@@ -670,5 +715,127 @@ nav .nav2 .uni-logo img {
   line-height: 19px;
   letter-spacing: 0.01em;
   color: #707683;
+}
+
+.settings-card {
+  margin: 24px 90px 0 24px;
+  background: #ffffff;
+  border: 1px solid rgba(63, 63, 68, 0.005);
+  -webkit-box-shadow: 0px 1px 0px rgba(63, 63, 68, 0.05), 0px 1px 3px rgba(63, 63, 68, 0.15);
+          box-shadow: 0px 1px 0px rgba(63, 63, 68, 0.05), 0px 1px 3px rgba(63, 63, 68, 0.15);
+  border-radius: 4px;
+}
+
+.settings-card .settings-heading {
+  height: 70px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid #e4e7eb;
+}
+
+.settings-card .settings-heading .plan-name {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: -0.05px;
+  color: #3a3b3f;
+  margin-left: 24px;
+}
+
+.settings-card .settings-heading p {
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 16px;
+  color: #66788a;
+  margin-left: 16px;
+  margin-bottom: 0;
+}
+
+.settings-card .settings-container {
+  margin: 24px auto auto 16px;
+}
+
+.settings-card .settings-container input {
+  width: 22px;
+  height: 22px;
+  border-color: rgba(0, 0, 0, 0.32);
+  margin-right: 12px;
+  border-radius: 4px;
+  border-width: 1.5px;
+}
+
+.settings-card .settings-container label {
+  font-size: 16px;
+  line-height: 16px;
+  letter-spacing: -0.4px;
+  margin-right: 10px;
+  margin-bottom: 15px;
+  vertical-align: middle;
+}
+
+.settings-card .settings-container .abs-limit {
+  margin-top: 28px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.settings-card .settings-container .abs-limit input {
+  width: 328px;
+  height: 56px;
+}
+
+.settings-card .settings-container .abs-limit small {
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.4px;
+  color: rgba(0, 0, 0, 0.6);
+  margin-left: 14px;
+}
+
+.settings-card .settings-container .btn-save-settings {
+  width: 152px;
+  height: 40px;
+  background-color: #3f51b5;
+  -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.12), 0px 1px 3px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.12), 0px 1px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  color: white;
+  text-transform: uppercase;
+  font-size: 14px;
+  border: none;
+  margin: 24px 0;
+  line-height: 16px;
+  letter-spacing: 1.25px;
+}
+
+.add-button {
+  width: 152px;
+  height: 40px;
+  background-color: #2ed47a;
+  -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.12), 0px 1px 3px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.12), 0px 1px 3px rgba(0, 0, 0, 0.2);
+  color: #fafafa;
+  border-radius: 4px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-transform: uppercase;
+  text-decoration: none;
 }
 /*# sourceMappingURL=style.css.map */

@@ -1,3 +1,40 @@
+.timetable-heading {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+
+    h1 {
+        font-size: 20px;
+        line-height: 20px;
+        text-align: center;
+        letter-spacing: -0.05px;
+        color: #3a3b3f;
+        margin-right: 40px;
+    }
+}
+
+.timetable-control,
+.timetable-date {
+    display: flex;
+    justify-content: center;
+}
+
+.timetable-control {
+    margin: 20px 0;
+    
+    .timetable-date {
+        margin: 0 16px;
+
+        span {
+            font-size: 16px;
+            line-height: 20px;
+            text-align: center;
+            letter-spacing: -0.05px;
+            color: #3a3b3f;
+        }
+    }
+}
+
 .timetable-holder {
     margin: 40px 90px 0 24px;
 
