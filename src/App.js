@@ -4,7 +4,7 @@ import {
     Switch,
     Route
 } from "react-router-dom";
-import Home from './pages/Home';
+// import Home from './pages/Home';
 import Auth from './pages/Auth';
 import { Packs } from './pages/Packs';
 import Dashboard from './pages/Dashboard';
@@ -49,10 +49,10 @@ class App extends Component {
             <div className="App">
                 <Router>
                     <Switch>
-                        <Route exact path="/" component={Home} />
+                        <Route exact path="/" component={Auth} />
                         <Route path="/register" component={Auth} />
                         <Route path="/register2" component={Auth} />
-                        <Route path="/login" component={Auth} />
+                        {/* <Route path="/login" component={Auth} /> */}
                         <Route path="/packs">
                             <Packs packs={this.state.packs} />
                         </Route>

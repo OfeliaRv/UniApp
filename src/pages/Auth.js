@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Router, Route, Link } from "react-router-dom";
 import { createBrowserHistory } from 'history';
 import axios from 'axios';
 
@@ -14,14 +14,14 @@ class Auth extends Component {
                         <div className="auth-container">
                             <div className="auth-card">
                                 <div className="auth-part col-md-6">
-                                    <Route path="/login" component={Login_head}></Route>
+                                    <Route path="/" component={Login_head}></Route>
                                     <Route path="/register" component={Register1_head}></Route>
                                     <Route path="/register2" component={Register2_head}></Route>
                                     <div id="auth">
-                                        <Route path="/login" component={Login}></Route>
+                                        <Route path="/" component={Login}></Route>
                                         <Route path="/register" component={Register1}></Route>
                                         <Route path="/register2" component={Register2}></Route>
-                                    </div>
+                                </div>
                                 </div>
                                 <div id="auth-pic" className="auth-part col-md-6">
                                     <div className="picture-text">
@@ -46,15 +46,36 @@ class Auth extends Component {
 
 export default Auth;
 
-const routeChangeRegister = () => {
-    let path = `register2`;
-    history.push(path);
-}
+// const routeChangeRegister = () => {
+//     let path = `register2`;
+//     history.push(path);
+// }
 
 // const routeChangeLogin = () => {
 //     let path = `dashboard`;
 //     history.push(path);
 // }
+
+const registerHandler = e => {
+    e.preventDefault();
+
+    const data = {
+        email: this.email,
+        password: this.password,
+        full_name: this.full_name,
+        university_name: this.university_name
+    }
+
+    axios.post(`auth/administrator/register`, data)
+        .then(res => {
+            localStorage.setItem('token', res.token);
+            console.log(res);
+            console.log("Register Successful!");
+        })
+        .catch(err => {
+            console.log(err);
+        })
+}
 
 const Register1_head = () => {
     return (
@@ -73,18 +94,18 @@ const Register1_head = () => {
 
 const Register1 = () => {
     return (
-        <form className="form">
+        <form className="form" onSubmit={registerHandler}>
             <div className="auth-form">
-                <input type="text" name="full name" placeholder="Full Name" />
-                <input type="text" name="university name" placeholder="University Name" />
-                <input type="email" name="email" placeholder="Email" />
-                <input type="password" name="password" placeholder="Password" />
+                <input type="text" name="full_name" placeholder="Full Name" onChange={e => this.full_name = e.target.value} />
+                <input type="text" name="university_name" placeholder="University Name" onChange={e => this.university_name = e.target.value} />
+                <input type="email" name="email" placeholder="Email" onChange={e => this.email = e.target.value} />
+                <input type="password" name="password" placeholder="Password" onChange={e => this.password = e.target.value} />
             </div>
             <div className="check">
                 <input type="checkbox" name="agreement" id="agreement" required />
-                <label for="agreement"> I have read the <a className="link-underline">Terms and Conditions</a>.</label>
+                <label htmlFor="agreement"> I have read the <a className="link-underline">Terms and Conditions</a>.</label>
             </div>
-            <button type="submit" className="auth-button" onClick={routeChangeRegister}>Sign up now</button>
+            <button type="submit" className="auth-button">Sign up now</button> 
         </form>
     )
 }
@@ -143,7 +164,7 @@ const loginHandler = e => {
         .then(res => {
             localStorage.setItem('token', res.token);
             console.log(res);
-            console.log("Success!");
+            console.log("Login Successful!");
         })
         .catch(err => {
             console.log(err);

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Router, Route, Link } from "react-router-dom";
 import Navbar from '../components/layout/Navbar';
 import Timetable from '../components/Timetable';
 import axios from 'axios';
@@ -97,6 +97,7 @@ export default class Dashboard extends Component {
                         <Route path="/teachers" component={TeachersList}></Route>
                         <Route path="/timetable" component={Timetable}></Route>
                         <Route path="/settings" component={Settings}></Route>
+                        <Route path="/user" component={User}></Route>
                     </div>
                 </div>
             </Router>
@@ -216,13 +217,13 @@ const Settings = () => {
                 </form>
             </div>
 
-            <button className="add-button" type="submit" style={{ 'margin': '40px 24px' }}>Add Teacher</button>
+            <button className="add-button" type="submit" style={{ 'margin': '40px 24px' }}>Save settings</button>
         </div>
     )
 }
 
 const User = () => {
     return (
-        <h1>User - </h1>
+        <h1>User - {localStorage.getItem('token')}</h1>
     )
 }

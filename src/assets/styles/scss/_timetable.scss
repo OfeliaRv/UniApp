@@ -21,7 +21,7 @@
 
 .timetable-control {
     margin: 20px 0;
-    
+
     .timetable-date {
         margin: 0 16px;
 
@@ -53,5 +53,13 @@
                 }
             }
         }
+    }
+
+    #time {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.15px;
+        color: rgba(0, 0, 0, 0.6);
     }
 }

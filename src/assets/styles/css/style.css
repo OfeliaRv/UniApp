@@ -717,6 +717,14 @@ nav .nav2 .uni-logo img {
   color: #707683;
 }
 
+.timetable-holder #time {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.15px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
 .settings-card {
   margin: 24px 90px 0 24px;
   background: #ffffff;
