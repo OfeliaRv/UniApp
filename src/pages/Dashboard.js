@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Navbar from '../components/layout/Navbar';
 import Timetable from '../components/Timetable';
 import axios from 'axios';
