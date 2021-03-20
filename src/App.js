@@ -14,7 +14,7 @@ class App extends Component {
         packs: [
             {
                 id: 1, name: "Basic pack",
-                price: "9.99$",
+                price: "29.99$",
                 features: [
                     { id: 1, feature: "Notification sounds" },
                     { id: 2, feature: "Maximum of 7 times of absence checking per subject" },
@@ -23,7 +23,7 @@ class App extends Component {
             },
             {
                 id: 2, name: "Regular pack",
-                price: "16.99$",
+                price: "49.99$",
                 features: [
                     { id: 1, feature: "Notification sounds" },
                     { id: 2, feature: "Maximum of 10 times of absence checking per subject" },
@@ -33,7 +33,7 @@ class App extends Component {
             {
                 id: 3,
                 name: "Premium pack",
-                price: "19.99$",
+                price: "59.99$",
                 features: [
                     { id: 1, feature: "Notification sounds" },
                     { id: 2, feature: "Custom number of times of absence checking per subject" },

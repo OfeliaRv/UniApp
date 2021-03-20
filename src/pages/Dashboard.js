@@ -2,14 +2,30 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Navbar from '../components/layout/Navbar';
 import Timetable from '../components/Timetable';
+import axios from 'axios';
 
 export default class Dashboard extends Component {
+    componentDidMount() {
+        const config = {
+            headers: {
+                Authorization: 'Bearer ' + localStorage.getItem('token')
+            }
+        }
+
+        axios.get('login', config).then(
+            res => {
+                console.log(res);
+            },
+            err => {
+                console.log(err);
+            }
+        )
+    }
+
     render() {
         return (
             <Router>
-                <div >
-                    <Navbar />
-                </div>
+                <Navbar />
                 <div className="dashboard">
                     <div className="left-navigator">
                         <div className="user-profile">
@@ -40,7 +56,7 @@ export default class Dashboard extends Component {
                                 </svg>
                                 <p>Teachers</p></Link>
                             </li>
-                            <li> <Link to="/timetable">
+                            <li><Link to="/timetable">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M2 0H18C19.1 0 20 0.9 20 2V18C20 19.1 19.1 20 18 20H2C0.9 20 0 19.1 0 18V2C0 0.9 0.9 0 2 0ZM2 18H6V14H2V18ZM6 12H2V8H6V12ZM2 6H6V2H2V6ZM12 18H8V14H12V18ZM8 12H12V8H8V12ZM12 6H8V2H12V6ZM14 18H18V14H14V18ZM18 12H14V8H18V12ZM14 6H18V2H14V6Z" fill="#66788A" />
                                 </svg>
@@ -195,12 +211,18 @@ const Settings = () => {
                         <input type="text" placeholder="Set limit of absence" />
                         <small>The maximum limit in your pack is 24</small>
                     </div>
-                    <hr style={{ 'margin-left': '-16px', 'margin-top': '40px' , marginBottom: 0}} />
+                    <hr style={{ 'margin-left': '-16px', 'margin-top': '40px', marginBottom: 0 }} />
                     <button className="btn-save-settings" type="submit">Save settings</button>
                 </form>
             </div>
 
-            <button className="add-button" type="submit" style={{'margin': '40px 24px'}}>Add Teacher</button>
+            <button className="add-button" type="submit" style={{ 'margin': '40px 24px' }}>Add Teacher</button>
         </div>
+    )
+}
+
+const User = () => {
+    return (
+        <h1>User - </h1>
     )
 }

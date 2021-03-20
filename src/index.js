@@ -5,6 +5,9 @@ import './assets/styles/css/style.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
+import axios from 'axios';
+
+axios.defaults.baseURL = 'https://qayib-app.herokuapp.com/'
 
 ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();
