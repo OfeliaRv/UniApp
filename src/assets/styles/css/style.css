@@ -86,6 +86,14 @@ nav .nav2 .uni-logo img {
   width: 50%;
 }
 
+.auth-container .auth-card .login-heading {
+  margin: 44px 40px 65px 24px !important;
+}
+
+.auth-container .auth-card .login-heading .heading-nav {
+  margin-bottom: 40px !important;
+}
+
 .auth-container .auth-card .auth-heading {
   margin: 15px 40px 15px 24px;
 }

@@ -15,8 +15,16 @@
             width: 50%;
         }
 
+        .login-heading {
+            margin: 44px 40px 65px 24px !important;
+
+            .heading-nav {
+                margin-bottom: 40px !important;
+            }
+        }
+
         .auth-heading {
-            margin: 15px 40px 15px 24px;;
+            margin: 15px 40px 15px 24px;
 
             .back-arrow {
                 width: 18px;
