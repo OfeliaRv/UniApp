@@ -40,6 +40,6 @@ const handleClick = e => {
     localStorage.removeItem('username');
     localStorage.removeItem('lastname');
     localStorage.removeItem('firstname');
-    history.push('login');
+    history.push('');
 }
 

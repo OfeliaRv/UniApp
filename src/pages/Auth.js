@@ -23,13 +23,13 @@ const Auth = () => {
                             <div className="auth-card">
                                 <div className="auth-part col-md-6">
                                     <Route exact path="/" component={Login_head}></Route>
-                                    <Route path="/login" component={Login_head}></Route>
+                                    <Route exact path="/login" component={Login_head}></Route>
                                     <Route path="/loginTeacher" component={Login_head}></Route>
                                     <Route path="/loginStudent" component={Login_head}></Route>
                                     <Route path="/register" component={Register1_head}></Route>
                                     <div id="auth">
                                         <Route exact path="/" component={Login}></Route>
-                                        <Route path="/login" component={Login}></Route>
+                                        <Route exact path="/login" component={Login}></Route>
                                         <Route path="/loginTeacher" component={Login}></Route>
                                         <Route path="/loginStudent" component={Login}></Route>
                                         <Route path="/register" component={Register1}></Route>
@@ -63,9 +63,8 @@ const registerHandler = e => {
 
     const data = {
         username: this.username,
-        firstname: this.first_name,
-        lastname: this.last_name,
-        // university_name: this.university_name,
+        firstname: this.firstname,
+        lastname: this.lastname,
         email: this.email,
         password: this.password
     }
@@ -106,7 +105,6 @@ const Register1 = () => {
                 <input type="text" name="username" placeholder="Username" onChange={e => this.username = e.target.value} required />
                 <input type="text" name="firstname" placeholder="First Name" onChange={e => this.firstname = e.target.value} required />
                 <input type="text" name="lastname" placeholder="Last Name" onChange={e => this.lastname = e.target.value} required />
-                {/* <input type="text" name="university_name" placeholder="University Name" onChange={e => this.university_name = e.target.value} /> */}
                 <input type="email" name="email" placeholder="Email" onChange={e => this.email = e.target.value} required />
                 <input type="password" name="password" placeholder="Password" onChange={e => this.password = e.target.value} required />
             </div>
