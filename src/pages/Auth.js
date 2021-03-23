@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { createBrowserHistory } from 'history';
 import axios from 'axios';
@@ -76,7 +76,7 @@ const registerHandler = e => {
             localStorage.setItem('user-email', data.email);
             localStorage.setItem('user-password', data.password);
             localStorage.setItem('user-type', "Administrator");
-            history.push('students');
+            history.push('addUniversity');
             console.log("Admin Register Successful!");
         })
         .catch(err => {
