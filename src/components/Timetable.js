@@ -148,6 +148,80 @@ export default class Timetable extends Component {
                                     <p id="time"></p>
                                 </td>
                             </tr>
+                            <tr>
+                                <td>
+                                    <p id="subject"></p>
+                                    <p id="event"></p>
+                                    <p id="time"></p>
+                                </td>
+                                <td>
+                                    <p id="subject"></p>
+                                    <p id="event"></p>
+                                    <p id="time"></p>
+                                </td>
+                                <td>
+                                    <p id="subject"></p>
+                                    <p id="event"></p>
+                                    <p id="time"></p>
+                                </td>
+                                <td>
+                                    <p id="subject"></p>
+                                    <p id="event"></p>
+                                    <p id="time"></p>
+                                </td>
+                                <td>
+                                    <p id="subject"></p>
+                                    <p id="event"></p>
+                                    <p id="time"></p>
+                                </td>
+                                <td>
+                                    <p id="subject"></p>
+                                    <p id="event"></p>
+                                    <p id="time"></p>
+                                </td>
+                                <td>
+                                    <p id="subject"></p>
+                                    <p id="event"></p>
+                                    <p id="time"></p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p id="subject"></p>
+                                    <p id="event"></p>
+                                    <p id="time"></p>
+                                </td>
+                                <td>
+                                    <p id="subject"></p>
+                                    <p id="event"></p>
+                                    <p id="time"></p>
+                                </td>
+                                <td>
+                                    <p id="subject"></p>
+                                    <p id="event"></p>
+                                    <p id="time"></p>
+                                </td>
+                                <td>
+                                    <p id="subject"></p>
+                                    <p id="event"></p>
+                                    <p id="time"></p>
+                                </td>
+                                <td>
+                                    <p id="subject"></p>
+                                    <p id="event"></p>
+                                    <p id="time"></p>
+                                </td>
+                                <td>
+                                    <p id="subject"></p>
+                                    <p id="event"></p>
+                                    <p id="time"></p>
+                                </td>
+                                <td>
+                                    <p id="subject"></p>
+                                    <p id="event"></p>
+                                    <p id="time"></p>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Navbar extends Component {
     render() {
@@ -11,7 +12,7 @@ class Navbar extends Component {
                         </div>
                         <div className="nav-buttons">
                             <img src={require('../../assets/img/bell.svg')} alt="notifications" className="nav-button"/>
-                            <img src={require('../../assets/img/logout.svg')} alt="logout" className="nav-button"/>
+                            <Link to="/" onClick={() => localStorage.clear}><img src={require('../../assets/img/logout.svg')} alt="logout" className="nav-button"/></Link>
                         </div>
                     </div>
                 </div>
