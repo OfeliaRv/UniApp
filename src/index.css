@@ -22,8 +22,7 @@ body {
 }
 
 .page-heading {
-  margin-left: 24px;
-  margin-top: 40px;
+  margin: 40px 90px 0 24px;
 }
 
 .page-name h1 {

@@ -3,13 +3,14 @@ import { Router, Route, Link } from "react-router-dom";
 import { createBrowserHistory } from 'history';
 import Navbar from '../components/layout/Navbar';
 import Timetable from '../components/Timetable';
+import Auth from './Auth';
 
-const history = createBrowserHistory({ forceRefresh: true });
+const history = createBrowserHistory();
 
 const Dashboard = () => {
-    if (localStorage.getItem('user-email') === null) {
+    if (localStorage.getItem('user-email') === null || localStorage.getItem('user-email') === undefined) {
         return (
-            <h1>You are not logged in</h1>
+            <Auth />
         )
     }
     else {
@@ -29,23 +30,28 @@ const Dashboard = () => {
                         </div>
                         <ul className="selector-buttons">
                             <hr />
-                            <li><Link to="/students">
-                                <svg width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path fillRule="evenodd" clipRule="evenodd" d="M8 0C5.79 0 4 1.79 4 4C4 6.21 5.79 8 8 8C10.21 8 12 6.21 12 4C12 1.79 10.21 0 8 0ZM10 4C10 2.9 9.1 2 8 2C6.9 2 6 2.9 6 4C6 5.1 6.9 6 8 6C9.1 6 10 5.1 10 4ZM14 14C13.8 13.29 10.7 12 8 12C5.31 12 2.23 13.28 2 14H14ZM0 14C0 11.34 5.33 10 8 10C10.67 10 16 11.34 16 14V16H0V14Z" fill="#66788A" />
-                                </svg>
-                                <p>Students</p>
-                            </Link></li>
-                            <li><Link to="/teachers">
-                                <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="14">
-                                        <path fillRule="evenodd" clipRule="evenodd" d="M7.11336 7C8.95237 7 10.4484 5.50402 10.4484 3.665C10.4484 1.82599 8.95237 0.330002 7.11336 0.330002C5.27435 0.330002 3.77836 1.82599 3.77836 3.665C3.77836 5.50402 5.27435 7 7.11336 7ZM0.443359 12.0025C0.443359 9.78234 4.88367 8.6675 7.11336 8.6675C9.34305 8.6675 13.7834 9.78234 13.7834 12.0025V13.67H0.443359V12.0025ZM7.11336 10.5732C5.40775 10.5732 3.47345 11.2116 2.67305 11.7643H11.5537C10.7533 11.2116 8.81897 10.5732 7.11336 10.5732ZM8.54264 3.665C8.54264 2.87413 7.90423 2.23572 7.11336 2.23572C6.32249 2.23572 5.68407 2.87413 5.68407 3.665C5.68407 4.45587 6.32249 5.09429 7.11336 5.09429C7.90423 5.09429 8.54264 4.45587 8.54264 3.665ZM13.8215 8.72467C14.9268 9.52507 15.6891 10.5923 15.6891 12.0025V13.67H19.5005V12.0025C19.5005 10.0777 16.1655 8.98195 13.8215 8.72467ZM16.1655 3.665C16.1655 5.50402 14.6695 7 12.8305 7C12.316 7 11.8395 6.87613 11.4012 6.6665C12.0015 5.81846 12.3541 4.77984 12.3541 3.665C12.3541 2.55016 12.0015 1.51154 11.4012 0.663502C11.8395 0.453873 12.316 0.330002 12.8305 0.330002C14.6695 0.330002 16.1655 1.82599 16.1655 3.665Z" fill="white" />
-                                    </mask>
-                                    <g mask="url(#mask0)">
-                                        <rect x="-2" y="-5" width="24" height="24" fill="#66788A" />
-                                    </g>
-                                </svg>
-                                <p>Teachers</p></Link>
-                            </li>
+
+                            {localStorage.getItem('user-type') === "Administrator" ?
+                                <div>
+                                    <li><Link to="/students">
+                                        <svg width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fillRule="evenodd" clipRule="evenodd" d="M8 0C5.79 0 4 1.79 4 4C4 6.21 5.79 8 8 8C10.21 8 12 6.21 12 4C12 1.79 10.21 0 8 0ZM10 4C10 2.9 9.1 2 8 2C6.9 2 6 2.9 6 4C6 5.1 6.9 6 8 6C9.1 6 10 5.1 10 4ZM14 14C13.8 13.29 10.7 12 8 12C5.31 12 2.23 13.28 2 14H14ZM0 14C0 11.34 5.33 10 8 10C10.67 10 16 11.34 16 14V16H0V14Z" fill="#66788A" />
+                                        </svg>
+                                        <p>Students</p>
+                                    </Link></li>
+                                    <li><Link to="/teachers">
+                                        <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="14">
+                                                <path fillRule="evenodd" clipRule="evenodd" d="M7.11336 7C8.95237 7 10.4484 5.50402 10.4484 3.665C10.4484 1.82599 8.95237 0.330002 7.11336 0.330002C5.27435 0.330002 3.77836 1.82599 3.77836 3.665C3.77836 5.50402 5.27435 7 7.11336 7ZM0.443359 12.0025C0.443359 9.78234 4.88367 8.6675 7.11336 8.6675C9.34305 8.6675 13.7834 9.78234 13.7834 12.0025V13.67H0.443359V12.0025ZM7.11336 10.5732C5.40775 10.5732 3.47345 11.2116 2.67305 11.7643H11.5537C10.7533 11.2116 8.81897 10.5732 7.11336 10.5732ZM8.54264 3.665C8.54264 2.87413 7.90423 2.23572 7.11336 2.23572C6.32249 2.23572 5.68407 2.87413 5.68407 3.665C5.68407 4.45587 6.32249 5.09429 7.11336 5.09429C7.90423 5.09429 8.54264 4.45587 8.54264 3.665ZM13.8215 8.72467C14.9268 9.52507 15.6891 10.5923 15.6891 12.0025V13.67H19.5005V12.0025C19.5005 10.0777 16.1655 8.98195 13.8215 8.72467ZM16.1655 3.665C16.1655 5.50402 14.6695 7 12.8305 7C12.316 7 11.8395 6.87613 11.4012 6.6665C12.0015 5.81846 12.3541 4.77984 12.3541 3.665C12.3541 2.55016 12.0015 1.51154 11.4012 0.663502C11.8395 0.453873 12.316 0.330002 12.8305 0.330002C14.6695 0.330002 16.1655 1.82599 16.1655 3.665Z" fill="white" />
+                                            </mask>
+                                            <g mask="url(#mask0)">
+                                                <rect x="-2" y="-5" width="24" height="24" fill="#66788A" />
+                                            </g>
+                                        </svg>
+                                        <p>Teachers</p></Link>
+                                    </li>
+                                </div>
+                                : null}
                             <li><Link to="/timetable">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fillRule="evenodd" clipRule="evenodd" d="M2 0H18C19.1 0 20 0.9 20 2V18C20 19.1 19.1 20 18 20H2C0.9 20 0 19.1 0 18V2C0 0.9 0.9 0 2 0ZM2 18H6V14H2V18ZM6 12H2V8H6V12ZM2 6H6V2H2V6ZM12 18H8V14H12V18ZM8 12H12V8H8V12ZM12 6H8V2H12V6ZM14 18H18V14H14V18ZM18 12H14V8H18V12ZM14 6H18V2H14V6Z" fill="#66788A" />
@@ -87,6 +93,8 @@ const Dashboard = () => {
                         <Route exact path="/teachers" component={TeachersList}></Route>
                         <Route exact path="/timetable" component={Timetable}></Route>
                         <Route exact path="/settings" component={Settings}></Route>
+                        <Route exact path="/addTeacher" component={AddTeacher}></Route>
+                        <Route exact path="/addStudent" component={AddStudent}></Route>
                         <Route exact path="/user" component={User}></Route>
                     </div>
                 </div>
@@ -103,13 +111,13 @@ const TeachersList = () => {
             <div className="main-content-nav">
                 <div className="nav-tabs">
                     <div className="tab">
-                        <h6>Profile</h6>
+                        <Link to="/students"><h6>Profile</h6></Link>
                     </div>
                     <div className="tab">
-                        <h6>Account</h6>
+                        <Link to="/user"><h6>Account</h6></Link>
                     </div>
                     <div className="tab">
-                        <h6>Price Plans</h6>
+                        <a href="/packs"><h6>Price Plans</h6></a>
                     </div>
                 </div>
                 <Link to="/addTeacher">Add teacher</Link>
@@ -143,13 +151,13 @@ const StudentsList = () => {
             <div className="main-content-nav">
                 <div className="nav-tabs">
                     <div className="tab">
-                        <h6>Profile</h6>
+                        <Link to="/students"><h6>Profile</h6></Link>
                     </div>
                     <div className="tab">
-                        <h6>Account</h6>
+                        <Link to="/user"><h6>Account</h6></Link>
                     </div>
                     <div className="tab">
-                        <h6>Price Plans</h6>
+                        <a href="/packs"><h6>Price Plans</h6></a>
                     </div>
                 </div>
                 <div className="nav-button">
@@ -181,9 +189,73 @@ const StudentsList = () => {
     )
 }
 
-// const AddTeacher = () => {
+const AddTeacher = () => {
+    return (
+        <div className="add-user">
+            <div className="page-heading">
+                <div className="page-name">
+                    <h1>Add Teacher</h1>
+                </div>
+            </div>
+            <div className="dashboard-card-item">
+                <div className="dashboard-card-heading">
+                    <p className="plan-name">Basic Profile</p>
+                    <p>The information can be edited from your profile page</p>
+                </div>
+                <form className="dashboard-card-inner">
+                    <div className="dashboard-form col-md-12">
+                        <div className="dashboard-form-col col-md-4">
+                            <input type="text" name="firstname" placeholder="First name" />
+                            <input type="email" name="email" placeholder="Email" />
+                            <input type="text" name="department" placeholder="Department" />
+                        </div>
+                        <div className="dashboard-form-col col-md-4">
+                            <input type="text" name="lastname" placeholder="Last name" />
+                            <input type="number" name="phonenumber" placeholder="Phone number" />
+                            <input type="text" name="subject" placeholder="Subject" />
+                        </div>
+                    </div>
+                    <hr style={{ 'margin-top': '40px', marginBottom: 0 }} />
+                    <button className="add-button" type="submit" style={{ 'margin': '24px' }}>Add Teacher</button>
+                </form>
+            </div>
+        </div>
+    )
+}
 
-// }
+const AddStudent = () => {
+    return (
+        <div className="add-user">
+            <div className="page-heading">
+                <div className="page-name">
+                    <h1>Add Student</h1>
+                </div>
+            </div>
+            <div className="dashboard-card-item">
+                <div className="dashboard-card-heading">
+                    <p className="plan-name">Basic Profile</p>
+                    <p>The information can be edited from your profile page</p>
+                </div>
+                <form className="dashboard-card-inner">
+                    <div className="dashboard-form col-md-12">
+                        <div className="dashboard-form-col col-md-4">
+                            <input type="text" name="firstname" placeholder="First name" />
+                            <input type="email" name="email" placeholder="Email" />
+                            <input type="text" name="faculty" placeholder="Faculty" />
+                        </div>
+                        <div className="dashboard-form-col col-md-4">
+                            <input type="text" name="lastname" placeholder="Last name" />
+                            <input type="number" name="phonenumber" placeholder="Phone number" />
+                        </div>
+                    </div>
+                    <hr style={{ 'margin-top': '40px', marginBottom: 0 }} />
+                    <button className="add-button" type="submit" style={{ 'margin': '24px' }}>Add Teacher</button>
+                </form>
+            </div>
+        </div>
+    )
+}
+
 
 const Settings = () => {
     return (
@@ -198,7 +270,7 @@ const Settings = () => {
                     <p className="plan-name">Basic Profile</p>
                     <p>The information can be edited from your profile page</p>
                 </div>
-                <form className="dashboard-container">
+                <form className="dashboard-card-inner">
                     <p>Check Absence</p>
                     <input type="radio" id="opt1" name="absence" value="automatically" />
                     <label for="opt1">Automatically</label>
@@ -219,12 +291,12 @@ const Settings = () => {
 const User = () => {
     if (localStorage.getItem('user-email') === null) {
         return (
-            <h1>User - {localStorage.getItem('user-email')}</h1>
+            <h1>You are not logged in</h1>
         )
     }
     else {
         return (
-            <h1>You are not logged in</h1>
+            <h1>User - {localStorage.getItem('user-email')}</h1>
         )
     }
 }

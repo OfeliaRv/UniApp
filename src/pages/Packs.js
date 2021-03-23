@@ -25,7 +25,7 @@ export const Pack = (props) => {
             <div className="pack-about">
                 <p>Check and test the platform to see how it works.</p>
             </div>
-            <button><Link to="/purchase">Get started</Link></button>
+            <button><Link to="/payment">Get started</Link></button>
             <div className="pack-properties">
                 <ul>
                     {props.mycounter.features ? props.mycounter.features.map(feature => <li key={feature.id}> {feature.feature}</li>) : null}

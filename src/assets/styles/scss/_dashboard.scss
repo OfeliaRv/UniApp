@@ -17,7 +17,7 @@
                 height: 100px;
                 width: 100px;
                 border-radius: 100%;
-                border: 1px solid #E4E7EB;
+                border: 1px solid #e4e7eb;
                 overflow: hidden;
 
                 img {
@@ -131,14 +131,25 @@
                 width: 78px;
                 margin: 0 20px;
 
-                h6 {
-                    text-align: center;
-                    font-weight: 500;
-                    font-size: 16px;
-                    line-height: 20px;
-                    letter-spacing: -0.05px;
-                    color: #3a3b3f;
-                    margin: 0;
+                a {
+                    // border-bottom: 3px solid #1665d8;
+                    width: unset;
+                    height: 100%;
+                    width: 100%;
+                    background-color: unset;
+                    box-shadow: unset;
+                    border-radius: unset;
+                    text-transform: unset;
+
+                    h6 {
+                        text-align: center;
+                        font-weight: 500;
+                        font-size: 16px;
+                        line-height: 20px;
+                        letter-spacing: -0.05px;
+                        color: #3a3b3f;
+                        margin: 0;
+                    }
                 }
             }
         }
@@ -248,7 +259,25 @@
         }
     }
 
-    .dashboard-container {
+    .dashboard-form {
+        display: flex;
+        padding: 0;
+
+        &-col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0;
+
+            input {
+                width: 328px !important;
+                height: 56px !important;
+                margin: 12px 24px !important;
+            }
+        }
+    }
+
+    .dashboard-card-inner {
         margin: 24px auto auto 16px;
 
         input {
@@ -318,4 +347,11 @@
     justify-content: center;
     text-transform: uppercase;
     text-decoration: none;
+}
+
+.add-user{
+    .dashboard-card-inner{
+        margin: unset !important;
+        margin-top: 20px !important;
+    }
 }

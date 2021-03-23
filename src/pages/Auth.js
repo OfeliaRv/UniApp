@@ -2,26 +2,34 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { createBrowserHistory } from 'history';
 import axios from 'axios';
+import Dashboard from './Dashboard';
 
 const history = createBrowserHistory({ forceRefresh: true });
 
-export default class Auth extends Component {
-    render() {
+const Auth = () => {
+    if (localStorage.getItem('user-email') !== null) {
+        return (
+            <div>
+                <Dashboard />
+            </div>
+        )
+    }
+    else {
         return (
             <Router history={history}>
-                <div id="register-page" className="full-page">
+                <div className="full-page">
                     <div className="container">
                         <div className="auth-container">
                             <div className="auth-card">
                                 <div className="auth-part col-md-6">
-                                    <Route exact path="/" component={Login_head}></Route>
-                                    <Route exact path="/loginTeacher" component={Login_head}></Route>
-                                    <Route exact path="/loginStudent" component={Login_head}></Route>
+                                    <Route path="/login" component={Login_head}></Route>
+                                    <Route path="/loginTeacher" component={Login_head}></Route>
+                                    <Route path="/loginStudent" component={Login_head}></Route>
                                     <Route path="/register" component={Register1_head}></Route>
                                     <div id="auth">
-                                        <Route exact path="/" component={Login}></Route>
-                                        <Route exact path="/loginTeacher" component={Login}></Route>
-                                        <Route exact path="/loginStudent" component={Login}></Route>
+                                        <Route path="/login" component={Login}></Route>
+                                        <Route path="/loginTeacher" component={Login}></Route>
+                                        <Route path="/loginStudent" component={Login}></Route>
                                         <Route path="/register" component={Register1}></Route>
                                     </div>
                                 </div>
@@ -42,24 +50,32 @@ export default class Auth extends Component {
                     </div>
                 </div>
             </Router>
-        );
+        )
     }
 }
+
+export default Auth;
 
 const registerHandler = e => {
     e.preventDefault();
 
     const data = {
+        username: this.username,
+        firstname: this.first_name,
+        lastname: this.last_name,
+        // university_name: this.university_name,
         email: this.email,
-        password: this.password,
-        full_name: this.full_name,
-        university_name: this.university_name
+        password: this.password
     }
 
     axios.post(`auth/administrator/register`, data)
         .then(res => {
-            localStorage.setItem('token', res.token);
             console.log(res);
+            localStorage.setItem('token', res.data.token);
+            localStorage.setItem('user-email', data.email);
+            localStorage.setItem('user-password', data.password);
+            localStorage.setItem('user-type', "Administrator");
+            history.push('students');
             console.log("Admin Register Successful!");
         })
         .catch(err => {
@@ -81,15 +97,16 @@ const Register1_head = () => {
     )
 }
 
-
 const Register1 = () => {
     return (
         <form className="form" onSubmit={registerHandler}>
             <div className="auth-form">
-                <input type="text" name="full_name" placeholder="Full Name" onChange={e => this.full_name = e.target.value} />
-                <input type="text" name="university_name" placeholder="University Name" onChange={e => this.university_name = e.target.value} />
-                <input type="email" name="email" placeholder="Email" onChange={e => this.email = e.target.value} />
-                <input type="password" name="password" placeholder="Password" onChange={e => this.password = e.target.value} />
+                <input type="text" name="username" placeholder="Username" onChange={e => this.username = e.target.value} required />
+                <input type="text" name="firstname" placeholder="First Name" onChange={e => this.firstname = e.target.value} required />
+                <input type="text" name="lastname" placeholder="Last Name" onChange={e => this.lastname = e.target.value} required />
+                {/* <input type="text" name="university_name" placeholder="University Name" onChange={e => this.university_name = e.target.value} /> */}
+                <input type="email" name="email" placeholder="Email" onChange={e => this.email = e.target.value} required />
+                <input type="password" name="password" placeholder="Password" onChange={e => this.password = e.target.value} required />
             </div>
             <div className="check">
                 <input type="checkbox" name="agreement" id="agreement" required />
@@ -100,41 +117,12 @@ const Register1 = () => {
     )
 }
 
-// const Register2_head = () => {
-//     return (
-//         <div className="auth-heading">
-//             <div className="heading-nav">
-//                 <div className="heading-back" onClick={history.goBack}>
-//                     <img className="back-arrow" src={require('../assets/img/back-arrow.svg')} alt="go back" />
-//                     <a>Go back</a>
-//                 </div>
-//                 <p>Have an account? <Link to="/login" className="link-underline">Sign In</Link></p>
-//             </div>
-//             <div className="heading-main">
-//                 <h1>Sign up to Checkabs</h1>
-//                 <h6>Sign up on the internal platform</h6>
-//             </div>
-//         </div>
-//     )
-// }
-
-// const Register2 = () => {
-//     return (
-//         <form className="form" action="">
-//             <div className="auth-form">
-//                 <input type="text" name="position" placeholder="Verify mail" />
-//             </div>
-//             <Link to="/dashboard" className="auth-button-container"><button type="submit" className="auth-button">Submit</button></Link>
-//         </form>
-//     )
-// }
-
 const Login_head = () => {
     return (
         <div className="auth-heading">
             <div className="heading-nav">
                 <p>New user? <Link to="/register" className="link-underline">Sign up here</Link></p>
-                <Link to="/">Administrator</Link>
+                <Link to="/login">Administrator</Link>
                 <Link to="/loginTeacher">Teacher</Link>
                 <Link to="/loginStudent">Student</Link>
             </div>
@@ -217,8 +205,8 @@ const Login = () => {
     return (
         <form className="form" onSubmit={loginHandler}>
             <div className="auth-form">
-                <input type="email" name="email" placeholder="Email" onChange={e => this.email = e.target.value} />
-                <input type="password" name="password" placeholder="Password" onChange={e => this.password = e.target.value} />
+                <input type="email" name="email" placeholder="Email" onChange={e => this.email = e.target.value} required />
+                <input type="password" name="password" placeholder="Password" onChange={e => this.password = e.target.value} required />
             </div>
             <button type="submit" className="auth-button">Sign in</button>
         </form>

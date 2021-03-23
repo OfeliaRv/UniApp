@@ -87,7 +87,7 @@ nav .nav2 .uni-logo img {
 }
 
 .auth-container .auth-card .auth-heading {
-  margin: 55px 40px 40px 24px;
+  margin: 15px 40px 15px 24px;
 }
 
 .auth-container .auth-card .auth-heading .back-arrow {
@@ -114,7 +114,7 @@ nav .nav2 .uni-logo img {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin-bottom: 24px;
+  margin-bottom: 18px;
 }
 
 .auth-container .auth-card .auth-heading .heading-nav a,
@@ -432,7 +432,7 @@ nav .nav2 .uni-logo img {
   height: 100px;
   width: 100px;
   border-radius: 100%;
-  border: 1px solid #E4E7EB;
+  border: 1px solid #e4e7eb;
   overflow: hidden;
 }
 
@@ -573,7 +573,18 @@ nav .nav2 .uni-logo img {
   margin: 0 20px;
 }
 
-.right-main-content .main-content-nav .nav-tabs .tab h6 {
+.right-main-content .main-content-nav .nav-tabs .tab a {
+  width: unset;
+  height: 100%;
+  width: 100%;
+  background-color: unset;
+  -webkit-box-shadow: unset;
+          box-shadow: unset;
+  border-radius: unset;
+  text-transform: unset;
+}
+
+.right-main-content .main-content-nav .nav-tabs .tab a h6 {
   text-align: center;
   font-weight: 500;
   font-size: 16px;
@@ -698,11 +709,38 @@ nav .nav2 .uni-logo img {
   margin-bottom: 0;
 }
 
-.dashboard-card-item .dashboard-container {
+.dashboard-card-item .dashboard-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0;
+}
+
+.dashboard-card-item .dashboard-form-col {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0;
+}
+
+.dashboard-card-item .dashboard-form-col input {
+  width: 328px !important;
+  height: 56px !important;
+  margin: 12px 24px !important;
+}
+
+.dashboard-card-item .dashboard-card-inner {
   margin: 24px auto auto 16px;
 }
 
-.dashboard-card-item .dashboard-container input {
+.dashboard-card-item .dashboard-card-inner input {
   width: 22px;
   height: 22px;
   border-color: rgba(0, 0, 0, 0.32);
@@ -711,7 +749,7 @@ nav .nav2 .uni-logo img {
   border-width: 1.5px;
 }
 
-.dashboard-card-item .dashboard-container label {
+.dashboard-card-item .dashboard-card-inner label {
   font-size: 16px;
   line-height: 16px;
   letter-spacing: -0.4px;
@@ -720,7 +758,7 @@ nav .nav2 .uni-logo img {
   vertical-align: middle;
 }
 
-.dashboard-card-item .dashboard-container .abs-limit {
+.dashboard-card-item .dashboard-card-inner .abs-limit {
   margin-top: 28px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -731,12 +769,12 @@ nav .nav2 .uni-logo img {
           flex-direction: column;
 }
 
-.dashboard-card-item .dashboard-container .abs-limit input {
+.dashboard-card-item .dashboard-card-inner .abs-limit input {
   width: 328px;
   height: 56px;
 }
 
-.dashboard-card-item .dashboard-container .abs-limit small {
+.dashboard-card-item .dashboard-card-inner .abs-limit small {
   font-size: 12px;
   line-height: 16px;
   letter-spacing: 0.4px;
@@ -744,7 +782,7 @@ nav .nav2 .uni-logo img {
   margin-left: 14px;
 }
 
-.dashboard-card-item .dashboard-container .btn-save-settings {
+.dashboard-card-item .dashboard-card-inner .btn-save-settings {
   width: 152px;
   height: 40px;
   background-color: #3f51b5;
@@ -782,6 +820,11 @@ nav .nav2 .uni-logo img {
   text-decoration: none;
 }
 
+.add-user .dashboard-card-inner {
+  margin: unset !important;
+  margin-top: 20px !important;
+}
+
 .timetable-heading {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -798,7 +841,7 @@ nav .nav2 .uni-logo img {
   text-align: center;
   letter-spacing: -0.05px;
   color: #3a3b3f;
-  margin-right: 40px;
+  margin-right: 24px;
 }
 
 .timetable-control,
