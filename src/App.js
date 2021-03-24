@@ -9,45 +9,75 @@ import Payment from './pages/Payment';
 const history = createBrowserHistory({ forceRefresh: true });
 
 export default class App extends Component {
-    state = {
-        user: {
-            email: null,
-            password: null,
-            fullname: null,
-        },
-        packs: [
-            {
-                id: 1,
-                name: "Basic pack",
-                price: "29.99$",
-                features: [
-                    { id: 1, feature: "Notification sounds" },
-                    { id: 2, feature: "Maximum of 7 times of absence checking per subject" },
-                    { id: 3, feature: "10 000 users maximum" }
-                ]
-            },
-            {
-                id: 2,
-                name: "Regular pack",
-                price: "49.99$",
-                features: [
-                    { id: 1, feature: "Notification sounds" },
-                    { id: 2, feature: "Maximum of 10 times of absence checking per subject" },
-                    { id: 3, feature: "15 000 users maximum" }
-                ]
-            },
-            {
-                id: 3,
-                name: "Premium pack",
-                price: "59.99$",
-                features: [
-                    { id: 1, feature: "Notification sounds" },
-                    { id: 2, feature: "Custom number of times of absence checking per subject" },
-                    { id: 3, feature: "Unlimited number of users" },
-                    { id: 4, feature: "Teacher can check absence manually" }
-                ]
-            }
-        ]
+    constructor(props) {
+        super(props)
+
+        this.setStudents = this.setStudents.bind(this);
+        this.setTeachers = this.setTeachers.bind(this);
+        this.setTimeTableData = this.setTimeTableData.bind(this);
+
+        this.state = {
+            packs: [
+                {
+                    id: 1,
+                    name: "Basic pack",
+                    price: "29.99$",
+                    features: [
+                        { id: 1, feature: "Notification sounds" },
+                        { id: 2, feature: "Maximum of 7 times of absence checking per subject" },
+                        { id: 3, feature: "10 000 users maximum" }
+                    ]
+                },
+                {
+                    id: 2,
+                    name: "Regular pack",
+                    price: "49.99$",
+                    features: [
+                        { id: 1, feature: "Notification sounds" },
+                        { id: 2, feature: "Maximum of 10 times of absence checking per subject" },
+                        { id: 3, feature: "15 000 users maximum" }
+                    ]
+                },
+                {
+                    id: 3,
+                    name: "Premium pack",
+                    price: "59.99$",
+                    features: [
+                        { id: 1, feature: "Notification sounds" },
+                        { id: 2, feature: "Custom number of times of absence checking per subject" },
+                        { id: 3, feature: "Unlimited number of users" },
+                        { id: 4, feature: "Teacher can check absence manually" }
+                    ]
+                }
+            ],
+            teachers: [{}],
+            students: [],
+            weekdays: []
+        }
+    }
+
+    setTimeTableData = (weekdays) => {
+        this.setState({
+            weekdays: weekdays
+        })
+    }
+
+    setTeachers = (firstname1, lastname1) => {
+        this.setState({
+            teachers: [
+                {
+                    id: 0,
+                    firstname1: firstname1,
+                    lastname: lastname1
+                }
+            ]
+        })
+    }
+
+    setStudents = (students) => {
+        this.setState({
+            students: students
+        })
     }
 
     render() {
@@ -61,10 +91,11 @@ export default class App extends Component {
                         <Route path="/loginStudent" component={() => <Auth />} />
                         <Route path="/register" component={() => <Auth />} />
                         <Route exact path="/packs" component={() => <Packs packs={this.state.packs} />} />
-                        <Route exact path="/students" component={() => <Dashboard user={this.state.user} />} />
-                        <Route exact path="/teachers" component={() => <Dashboard user={this.state.user} />} />
-                        <Route exact path="/timetable" component={() => <Dashboard user={this.state.user} />} />
+                        <Route exact path="/students" component={() => <Dashboard students={this.state.students} setStudents={this.setStudents} />} />
+                        <Route exact path="/teachers" component={() => <Dashboard teachers={this.state.teachers} setTeachers={this.setTeachers} />} />
+                        <Route exact path="/timetable" component={() => <Dashboard weekdays={this.state.weekdays} setTimeTableData={this.setTimeTableData} />} />
                         <Route exact path="/payment" component={() => <Payment />} />
+                        <Route exact path="/addUniversity" component={Dashboard}></Route>
                     </Switch>
                 </Router>
             </div>

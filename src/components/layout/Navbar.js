@@ -15,7 +15,7 @@ export default class Navbar extends Component {
                                 <img src={require('../../assets/img/logo.svg')} alt="logo" />
                             </div>
                             <div className="nav-buttons">
-                                <img src={require('../../assets/img/bell.svg')} alt="notifications" className="nav-button" />
+                                {/* <img src={require('../../assets/img/bell.svg')} alt="notifications" className="nav-button" /> */}
                                 <Link to="/login" onClick={handleClick}><img src={require('../../assets/img/logout.svg')} alt="logout" className="nav-button" /></Link>
                             </div>
                         </div>
