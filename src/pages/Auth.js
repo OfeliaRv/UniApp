@@ -71,7 +71,6 @@ const registerHandler = e => {
 
     axios.post(`auth/administrator/register`, data)
         .then(res => {
-            console.log(res);
             localStorage.setItem('token', res.data.token);
             localStorage.setItem('user-email', data.email);
             localStorage.setItem('user-password', data.password);
