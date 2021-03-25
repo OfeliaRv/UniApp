@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { createBrowserHistory } from 'history';
 import Navbar from '../components/layout/Navbar';
@@ -113,15 +113,17 @@ class Dashboard extends Component {
 export default Dashboard;
 
 const TeachersList = (props) => {
-    axios.get('/university/getTeachers')
-        .then(
-            res => {
-                props.setTeachers(res.data[0].first_name, res.data[0].last_name);
-                console.log(res.data)
-            })
-        .catch(err => {
-            console.log(err);
-        });
+    useEffect(() => {
+        axios.get('/university/getTeachers')
+            .then(
+                res => {
+                    props.setTeachers(res.data);
+                    // console.log(props.teachers);
+                })
+            .catch(err => {
+                console.log(err);
+            });
+    }, [props]);
 
     return (
         <div>
@@ -143,9 +145,11 @@ const TeachersList = (props) => {
             <div className="list-container">
                 <table className="teachers-table">
                     <thead>
-                        <th>Full Name</th>
-                        <th>Department</th>
-                        <th>Subject</th>
+                        <tr>
+                            <th>Full Name</th>
+                            <th>Department</th>
+                            <th>Subject</th>
+                        </tr>
                     </thead>
                     <tbody>
                         <tr>
@@ -163,6 +167,13 @@ const TeachersList = (props) => {
                             <td>Computer Science</td>
                             <td>Computer Science</td>
                         </tr>
+                        {/* {props.teachers[0].map(teacher =>
+                            <tr>
+                                <td className="table-fullname">{teacher.firstname} {teacher.lastname} </td>
+                                <td>Chemical Engineering</td>
+                                <td>Chemical Engineering</td>
+                            </tr>
+                        )} */}
                     </tbody>
                 </table>
             </div>
@@ -171,15 +182,16 @@ const TeachersList = (props) => {
 }
 
 const StudentsList = (props) => {
-    axios.get('/university/getStudents')
-        .then(
-            res => {
-                props.setStudents(res.data);
-                console.log(res.data)
-            })
-        .catch(err => {
-            console.log(err);
-        });
+    useEffect(() => {
+        axios.get('/university/getStudents')
+            .then(
+                res => {
+                    props.setStudents(res.data.students[0]);
+                })
+            .catch(err => {
+                console.log(err);
+            });
+    }, [props]);
 
     return (
         <div>
@@ -203,11 +215,13 @@ const StudentsList = (props) => {
             <div className="list-container">
                 <table className="students-table">
                     <thead>
-                        <th>Full Name</th>
-                        <th>Faculty</th>
-                        <th>Year</th>
-                        <th>Performance</th>
-                        <th>Absences</th>
+                        <tr>
+                            <th>Full Name</th>
+                            <th>Faculty</th>
+                            <th>Year</th>
+                            <th>Performance</th>
+                            <th>Absences</th>
+                        </tr>
                     </thead>
                     <tbody>
                         <tr>
@@ -252,6 +266,28 @@ const StudentsList = (props) => {
     )
 }
 
+const addTeacherHandler = e => {
+    e.preventDefault();
+
+    const data = {
+        firstname: this.firstname,
+        lastname: this.lastname,
+        email: this.email,
+        department: this.department,
+        subject: this.subject
+    }
+
+    axios.post(`/university/addTeacher`, data)
+        .then(res => {
+            console.log(res);
+            console.log("Teacher was added successfully!");
+            history.push("teachers");
+        })
+        .catch(err => {
+            console.log(err);
+        })
+}
+
 const AddTeacher = () => {
     return (
         <div className="add-user">
@@ -265,16 +301,16 @@ const AddTeacher = () => {
                     <p className="plan-name">Basic Profile</p>
                     <p>The information can be edited from your profile page</p>
                 </div>
-                <form className="dashboard-card-inner">
+                <form className="dashboard-card-inner" onSubmit={addTeacherHandler}>
                     <div className="dashboard-form col-md-12">
                         <div className="dashboard-form-col col-md-4">
-                            <input type="text" name="firstname" placeholder="First name" required />
-                            <input type="email" name="email" placeholder="Email" required />
-                            <input type="text" name="department" placeholder="Department" />
+                            <input type="text" name="firstname" placeholder="First name" onChange={e => this.firstname = e.target.value} required />
+                            <input type="email" name="email" placeholder="Email" onChange={e => this.email = e.target.value} required />
+                            <input type="text" name="department" placeholder="Department" onChange={e => this.department = e.target.value} />
                         </div>
                         <div className="dashboard-form-col col-md-4">
-                            <input type="text" name="lastname" placeholder="Last name" required />
-                            <input type="text" name="subject" placeholder="Subject" />
+                            <input type="text" name="lastname" placeholder="Last name" onChange={e => this.lastname = e.target.value} required />
+                            <input type="text" name="subject" placeholder="Subject" onChange={e => this.subject = e.target.value} />
                         </div>
                     </div>
                     <hr style={{ 'margin-top': '40px', marginBottom: 0 }} />
@@ -300,6 +336,8 @@ const addStudentHandler = e => {
     axios.post(`/university/addStudent`, data)
         .then(res => {
             console.log(res);
+            console.log("Student was added successfully!");
+            history.push("students");
         })
         .catch(err => {
             console.log(err);

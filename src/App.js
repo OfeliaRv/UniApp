@@ -9,6 +9,10 @@ import Payment from './pages/Payment';
 const history = createBrowserHistory({ forceRefresh: true });
 
 export default class App extends Component {
+    shouldComponentUpdate() {
+        return false;
+    }
+
     constructor(props) {
         super(props)
 
@@ -50,7 +54,7 @@ export default class App extends Component {
                     ]
                 }
             ],
-            teachers: [{}],
+            teachers: this.props.teachers,
             students: [],
             weekdays: []
         }
@@ -58,26 +62,23 @@ export default class App extends Component {
 
     setTimeTableData = (weekdays) => {
         this.setState({
-            weekdays: weekdays
-        })
+            weekdays: [weekdays]
+        });
+        console.log(this.state.weekdays[0])
     }
 
-    setTeachers = (firstname1, lastname1) => {
+    setTeachers = (teachers) => {
         this.setState({
-            teachers: [
-                {
-                    id: 0,
-                    firstname1: firstname1,
-                    lastname: lastname1
-                }
-            ]
-        })
+            teachers: [teachers]
+        });
+        console.log(this.state.teachers[0]);
     }
 
     setStudents = (students) => {
         this.setState({
-            students: students
-        })
+            students: [students]
+        });
+        console.log(this.state.students[0]);
     }
 
     render() {
