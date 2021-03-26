@@ -598,6 +598,10 @@ nav .nav2 .uni-logo img {
   margin: 0;
 }
 
+.right-main-content .main-content-nav .nav-tabs .tab:nth-child(1) {
+  border-bottom: 3px solid #1665d8;
+}
+
 .right-main-content .main-content-nav a {
   width: 152px;
   height: 40px;

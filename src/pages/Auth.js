@@ -23,13 +23,11 @@ const Auth = () => {
                             <div className="auth-card">
                                 <div className="auth-part col-md-6">
                                     <Route exact path="/" component={Login_head}></Route>
-                                    <Route exact path="/login" component={Login_head}></Route>
                                     <Route path="/loginTeacher" component={Login_head}></Route>
                                     <Route path="/loginStudent" component={Login_head}></Route>
                                     <Route path="/register" component={Register1_head}></Route>
                                     <div id="auth">
                                         <Route exact path="/" component={Login}></Route>
-                                        <Route exact path="/login" component={Login}></Route>
                                         <Route path="/loginTeacher" component={Login}></Route>
                                         <Route path="/loginStudent" component={Login}></Route>
                                         <Route path="/register" component={Register1}></Route>
@@ -121,7 +119,7 @@ const Login_head = () => {
         <div className="auth-heading login-heading">
             <div className="heading-nav">
                 <p>New user? <Link to="/register" className="link-underline">Sign up here</Link></p>
-                <Link to="/login">Administrator</Link>
+                <Link to="/">Administrator</Link>
                 <Link to="/loginTeacher">Teacher</Link>
                 <Link to="/loginStudent">Student</Link>
             </div>

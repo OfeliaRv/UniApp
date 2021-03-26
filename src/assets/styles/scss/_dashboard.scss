@@ -132,7 +132,6 @@
                 margin: 0 20px;
 
                 a {
-                    // border-bottom: 3px solid #1665d8;
                     width: unset;
                     height: 100%;
                     width: 100%;
@@ -150,6 +149,10 @@
                         color: #3a3b3f;
                         margin: 0;
                     }
+                }
+
+                &:nth-child(1) {
+                    border-bottom: 3px solid #1665d8;
                 }
             }
         }
@@ -349,8 +352,8 @@
     text-decoration: none;
 }
 
-.add-user{
-    .dashboard-card-inner{
+.add-user {
+    .dashboard-card-inner {
         margin: unset !important;
         margin-top: 20px !important;
     }
