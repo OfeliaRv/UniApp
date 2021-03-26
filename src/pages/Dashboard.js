@@ -6,13 +6,13 @@ import Timetable from '../components/Timetable';
 import Auth from './Auth';
 import axios from 'axios';
 
-const history = createBrowserHistory();
+const history = createBrowserHistory({forceRefresh: true});
 
 class Dashboard extends Component {
 
-    shouldComponentUpdate() {
-        return false;
-    }
+    // shouldComponentUpdate() {
+    //     return false;
+    // }
 
     render() {
         if (localStorage.getItem('user-email') === null || localStorage.getItem('user-email') === undefined) {
@@ -186,7 +186,7 @@ const StudentsList = (props) => {
         axios.get('/university/getStudents')
             .then(
                 res => {
-                    props.setStudents(res.data.students[0]);
+                    props.setStudents(res.data);
                 })
             .catch(err => {
                 console.log(err);

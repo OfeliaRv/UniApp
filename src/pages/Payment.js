@@ -1,46 +1,45 @@
-// import React, { Component } from 'react';
-// // import { Router, Switch, Route } from "react-router-dom";
-// // import { createBrowserHistory } from 'history';
-// import { loadStripe } from '@stripe/stripe-js';
-// const stripePromise = loadStripe('pk_test');
-// const express = require('express');
-// const app = express();
-// const stripe = require('stripe')('sk_test');
-// // const history = createBrowserHistory({ forceRefresh: true });
+import React from 'react';
+import Navbar from '../components/layout/Navbar';
 
-// const Payment = () => {
+const Payment = () => {
+    return (
+        <div style={{height: '90vh'}}>
+            <Navbar />
+            <form className="payment-form">
+                <div className="payment-heading">
+                    <h6>Payment method</h6>
+                    <hr />
+                </div>
+                <div id="payment-info">
+                    <div className="payment-row">
+                        <input type="text" placeholder="XXXX XXXX XXXX XXXX" required />
+                        <input type="text" placeholder="MM/YYYY" required />
+                        <input type="text" placeholder="CVV" required />
+                    </div>
+                </div>
+                <div className="payment-heading">
+                    <h6>Billing information</h6>
+                    <hr />
+                </div>
+                <div id="billing-info">
+                    <input type="text" placeholder="Company name" required />
+                    <input type="text" placeholder="Full name" required />
+                    <input type="text" placeholder="Address line 1" required />
+                    <input type="text" placeholder="Address line 2" required />
+                    <div className="payment-row">
+                        <input type="text" placeholder="City" required />
+                        <input type="text" placeholder="Country" required />
+                    </div>
+                    <div className="payment-row">
+                        <input type="text" placeholder="Postal code" required />
+                        <input type="text" placeholder="Phone number" required />
+                    </div>
+                    <input type="text" placeholder="Email address" required />
+                </div>
+                <button type="submit">Next</button>
+            </form>
+        </div>
+    )
+}
 
-//     app.post('/payment', async (req, res) => {
-//         const session = await stripe.checkout.sessions.create({
-//             payment_method_types: ['card'],
-//             line_items: [
-//                 {
-//                     price_data: {
-//                         currency: 'usd',
-//                         product_data: {
-//                             name: 'T-shirt',
-//                         },
-//                         unit_amount: 2000,
-//                     },
-//                     quantity: 1,
-//                 },
-//             ],
-//             mode: 'payment',
-//             success_url: 'http://http://localhost:3000/payment',
-//             cancel_url: 'http://http://localhost:3000/payment',
-//         });
-
-//         res.json({ id: session.id });
-//     });
-
-//     app.listen(3000, () => console.log(`Listening on port ${3000}!`));
-//     // render(){
-//     //     return (
-//     //         <button role="link">
-//     //             Checkout
-//     //         </button>
-//     //     );
-//     // }
-// }
-
-// export default Payment;
+export default Payment;

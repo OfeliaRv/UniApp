@@ -55,8 +55,8 @@ export default class App extends Component {
                 }
             ],
             teachers: this.props.teachers,
-            students: [],
-            weekdays: []
+            students: this.props.students,
+            weekdays: this.props.weekdays
         }
     }
 
