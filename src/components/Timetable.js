@@ -1,18 +1,19 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const Timetable = (props) => {
+const Timetable = () => {
     localStorage.setItem('week', 0);
-    
+    const [timetable, setTimetable] = useState([]);
     useEffect(() => {
         axios.get('/university/getTimetable?week=' + localStorage.getItem('week'))
-            .then(res => {
-                props.setTimeTableData(res.data);
-            })
+            .then(
+                res => {
+                    setTimetable(res.data);
+                })
             .catch(err => {
                 console.log(err);
-            })
-    }, [props]);
+            });
+    }, []);
 
     return (
         <div>
