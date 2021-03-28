@@ -3,11 +3,14 @@ import axios from 'axios';
 
 const StudentsList = () => {
     const [students, setStudents] = useState([]);
+    const [isPending, setIsPending] = useState(true);
+
     useEffect(() => {
         axios.get('/university/getStudents')
             .then(
                 res => {
                     setStudents(res.data);
+                    setIsPending(false);
                 })
             .catch(err => {
                 console.log(err);
@@ -27,8 +30,9 @@ const StudentsList = () => {
                             <th>Absences</th>
                         </tr>
                     </thead>
+                    {isPending && <div style={{textAlign: 'center'}}>Loading ...</div>}
                     <tbody>
-                        {students.map(student => 
+                        {students.map(student =>
                             <tr>
                                 <td className="table-fullname">{student.First_name} {student.Last_name}</td>
                                 <td>{student.faculty}</td>
